@@ -1,0 +1,27 @@
+
+Redis Commands:
+
+Start redis-cli
+env | grep PORT_6379_TCP_ADDR
+redis-cli -h `env | grep PORT_6379_TCP_ADDR`
+
+cli: set <key> <value>
+cli: get <key> 
+
+Redis List:
+$ redis-cli lpush mylist a b c d
+(integer) 4
+$ redis-cli --csv lrange mylist 0 -1
+"d","c","b","a"
+
+Passing program output to Redis:
+$ redis-cli -x set foo < /etc/services
+OK
+$ redis-cli getrange foo 0 50
+"#\n# Network services, Internet style\n#\n# Note that "
+
+Redis Stats
+redis-cli --stat
+Performing an LRU simulation
+redis-cli --lru-test 10000000
+
